@@ -39,7 +39,7 @@ public class ProductoController {
 	private ICategoriaService categoriaService;
 	
 	
-	@GetMapping("/")
+	@GetMapping("/listar")
 	public String listarProductos(Model model) {
 		List<Productos> listadoProductos = productoService.listarTodos();
 		
