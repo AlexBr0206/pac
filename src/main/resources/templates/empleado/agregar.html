@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<meta charset="UTF-8">
+
+<link rel = "stylesheet" href= "@{/css/estilosformulario.css}">
+<link rel = "stylesheet" href= "@{/css/signin.css}">
+
+</head>
+<body>
+	<header th:replace="/fragmentos :: header" class="active"></header>
+	<div class="container">
+		<div class="jumbotron">
+
+
+			<div class="card text-center">
+				<div class="text-center pt-5">
+					<div class="card-header">
+						<h2>Registros de nuevos empleados</h2>
+					</div>
+					<h2>Ingresa los datos para registrar un nuevo empleado</h2>
+				</div>
+			</div>
+			<div class="card card-header">
+					<div class="row">
+						<div class="col-3"></div>
+						<div class="col-6">
+							<form action="#" th:action="@{agregar}" th:object="${usuario}"
+								method="post" id="form1" class="form-signin">
+								<label>Usuario: </label> <input type="text" required="required"
+									th:field="*{alias}" class="form-control"
+									placeholder="P.e. anonymouse" maxlength="15" /> <label>Nombre:
+								</label> <input type="text" required="required" th:field="*{nombre}"
+									class="form-control" placeholder="Completo con apellidos"
+									maxlength="50" /> <label>Correo Electrónico: </label> <input
+									type="email" required="required" th:field="*{correoe}"
+									class="form-control" placeholder="Lo usarás para acceder"
+									maxlength="100" /> <label>Contraseña: </label> <input
+									type="password" required="required" name="clave"
+									class="form-control" maxlength="20" />
+								<p>
+									<input type="submit" class="btn btn-success" value="Registrar" />
+									<input type="reset" class="btn btn-danger" value="Limpiar" />
+								</p>
+							</form>
+							<div th:if="*{error != null}"
+								class="alert alert-warning alert-dismissible fade show"
+								role="alert">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<h4 th:text=*{error}></h4>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

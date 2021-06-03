@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<meta charset="UTF-8">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header">
+	</header>
+
+	<div class=container>
+
+		<div class="card bg-light">
+			<div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+			<div class="card-body">
+
+
+				<form th:action="@{/productos/save}" th:object="${productos}"
+					method="post" enctype="multipart/form-data">
+					<div class=container>
+						<div class="form-group">
+							
+							<div class="row">
+								<div class="form-group col-md-9">
+									<label class="col-md-4" for="categoria">Categoria:</label> <select
+										th:field="*{categoria}"
+										class="form-control form-control-sm col-md-6" id="categoria">
+										<option th:each="categoria:${categoria}" th:value="${categoria.idcategoria}"
+											th:text="${categoria.nombrec}" />
+									</select>
+								</div>
+							
+							
+							<div class="row">
+								<div class="form-group col-md-9">
+									<input type="hidden" th:field="*{idproducto}"> <label
+										class="col-md-4" for="nombrep">Nombre:</label> <input
+										type="text" th:field="*{nombrep}"
+										class="col-md-10 form-control form-control-sm " id="nombrep"
+										placeholder="Nombre del Producto" required="required">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-9">
+									<label class="col-md-4" for="precio">Precio:</label> <input
+										type="number" th:field="*{precio}"
+										class="form-control form-control-sm col-md-6" id="precio"
+										placeholder="Precio del producto" required="required">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-md-9">
+									<label class="col-md-4" for="descripcion">Descripcion:</label> <input
+										type="text" th:field="*{descripcion}"
+										class="form-control form-control-sm col-md-6" id="descripcion"
+										placeholder="Descripcion del producto" required="required">
+								</div>
+							</div>
+
+							</div>
+
+							<div class="row">
+								<div class="form-group col-md-9">
+									<label class="col-md-4" for="imagen">Imagen:</label> <input
+										type="file" name="file"
+										class="form-control form-control-sm col-md-6" id="imagen">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-footer bg-dark">
+						<input type="submit" class="btn btn-primary btn-sm"
+							value="Guardar" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8">
+<title>Crud Clientes</title>
+
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+ <link rel="stylesheet" th:href="@{/css/estilos.css}">
+
+ 
+
+</head>
+<body>
+
+	<!-- Barra de navegacion -->
+	<header th:fragment="header">
+       <div class="container">                
+                    <h1>Productos Artesanales Cázares <small class="text-muted">        
+                    <br>Vinos, sidras y más</small> </h1>
+             </div>
+            </div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class = "container">
+				<a class="navbar-brand" href="#"><strong> P A C</strong></a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<!-- Enlaces del menú -->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" th:href="@{/home}"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/productos/verproductos}"> <span class="glyphicon glyphicon-shopping-cart"></span> Productos</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/ubicanos}"> <span class="glyphicon glyphicon-map-marker"></span> Ubicanos</a></li>
+					</ul>
+				</div>
+				
+					<ul class="nav navbar-nav navbar-right">
+       			 <li class="nav-item"><a class="nav-link" th:href="@{/empleado/validar}"><span class="glyphicon glyphicon-log-in"></span> Acceder</a></li>
+      		</ul>
+			</div>
+			
+		
+		</nav>
+		
+		<!-- Mensaje -->
+		<div class="alert alert-success alert-dismissible"  th:if="${success != null}">
+			<label th:text="${success}"></label>
+			<button type="button" class="close" data-dismiss="alert">
+			    <span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+				<div class="alert alert-warning alert-dismissible " th:if="${warning != null}">
+			<label th:text="${warning}"></label>
+			<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span>
+			</button>	
+			
+		</div>
+	</header>
+	<!-- Contenido -->
+	<div class="container"></div>
+
+	<!-- Pie de pagina -->
+	<footer th:fragment="footer" class="bg-dark text-white text-center">
+
+		<div class="container">
+			<p>Copyright Alex &copy; -2021</p>
+		</div>
+
+		<script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+	</footer>
+</body>
+</html>
